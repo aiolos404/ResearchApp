@@ -33,13 +33,13 @@
     </servlet-mapping>
     <servlet>
         <description/>
-        <display-name>SearchServlet</display-name>
-        <servlet-name>SearchServlet</servlet-name>
-        <servlet-class>research.ResearchServlet</servlet-class>
+        <display-name>SearchResearchServlet</display-name>
+        <servlet-name>SearchResearchServlet</servlet-name>
+        <servlet-class>research.SearchResearchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SearchServlet</servlet-name>
-        <url-pattern>/SearchServlet</url-pattern>
+        <servlet-name>SearchResearchServlet</servlet-name>
+        <url-pattern>/SearchResearchServlet</url-pattern>
     </servlet-mapping>
     <servlet>
         <description/>
@@ -71,5 +71,6 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
-   
+    
+    
 </web-app>

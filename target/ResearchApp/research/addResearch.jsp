@@ -3,7 +3,8 @@
     Created on : Oct 21, 2014, 10:17:42 PM
     Author     : aiolos404
 --%>
-<%@page import="java.util.*,research.Search"%>
+<%@page import="research.Research"%>
+<%@page import="java.util.*,research.SearchResearchServlet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,7 @@
     <body>
         <!--number,name,type,date,author,publisher-->
      <a href="index.jsp" style="text-decoration: none">Back to index</a>
-     <form method="POST" action="SearchServlet">
+     <form method="POST" action="AddResearchServlet">
             Number <input type="text" name="Number" /><br>
             Name: <input type="text" name="Name" /><br>
             Type: <input type="text" name="Type" /><br>
@@ -23,6 +24,12 @@
             Publisher <input type="text" name="Publisher" /><br>
             <input type="submit" value="Add" />
         </form>
-            
+            <hr><ol> <%
+
+            List<Research> researches = (List<Research>)request.getAttribute("researches");
+            for (Research u : researches) { %>
+                <li> <%= u %> </li> <%
+            } %>
+        </ol><hr>
     </body>
 </html>

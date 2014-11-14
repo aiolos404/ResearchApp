@@ -46,7 +46,7 @@
             <td><a href="AddResearchServlet">Add Research</a></td>
         </tr>
         <tr>
-            <td><a href="SearchServlet">Search</a></td>
+            <td><a href="research/searchResearch.jsp">Search Research</a></td>
         </tr>
     </table>
     <h2>Announcement</h2>
@@ -57,5 +57,6 @@
         </tr>
         
     </table>
+
 </body>
 </html>

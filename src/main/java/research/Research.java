@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
  
 @Entity
-public class Search implements Serializable {
+public class Research implements Serializable {
     private static final long serialVersionUID = 1L;
  
     // Persistent Fields:
@@ -23,10 +23,10 @@ public class Search implements Serializable {
     private Date signingDate;
  
     // Constructors:
-    public Search() {
+    public Research() {
     }
 // number,type,date,author,publisher
-    public Search(String number, String name, String type, String date,String author,String publisher) {
+    public Research(String number, String name, String type, String date,String author,String publisher) {
         this.number = number;
         this.name = name;
         this.type = type;
@@ -36,7 +36,7 @@ public class Search implements Serializable {
         this.signingDate = new Date(System.currentTimeMillis());
     }
     
-//    public Search(String title) {
+//    public Research(String title) {
 //        this.title = title;
 //        this.publisher = "Null";
 //        this.signingDate = new Date(System.currentTimeMillis());

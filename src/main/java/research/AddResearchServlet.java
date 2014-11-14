@@ -42,13 +42,13 @@ public class AddResearchServlet extends HttpServlet {
 //            String title = request.getParameter("title");
             if (number != null && name != null && type != null && date != null && author != null && publisher != null) {
                 em.getTransaction().begin();
-                em.persist(new Search(number,name,type,date,author,publisher));
+                em.persist(new Research(number,name,type,date,author,publisher));
                 em.getTransaction().commit();
             }
  
             // Display the list of guests:
-            List<Search> researchProject =
-                em.createQuery("SELECT g FROM Search g", Search.class).getResultList();
+            List<Research> researchProject =
+                em.createQuery("SELECT g FROM Research g", Research.class).getResultList();
             request.setAttribute("researches", researchProject);
 //            request.getRequestDispatcher("research/search.jsp").forward(request, response);
             request.getRequestDispatcher("research/addResearch.jsp").forward(request, response);
