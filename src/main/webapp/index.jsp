@@ -36,7 +36,7 @@
         <tr>
             <td>
    
-                 <a href="SignupServlet">Sign Up</a>(Unavailable now)</td> 
+                 <a href="SignupServlet">Sign Up</a></td> 
         </tr>
     </table>
     <h2>Research</h2>
