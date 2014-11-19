@@ -20,7 +20,7 @@ public class SignupServlet extends HttpServlet {
         EntityManager em = emf.createEntityManager();
  
         try {
-            // Handle a new guest (if any):
+            // Handle new attributes (if any):
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
             String email = request.getParameter("email");
@@ -32,10 +32,10 @@ public class SignupServlet extends HttpServlet {
                 em.getTransaction().commit();
             }
  
-            // Display the list of guests:
-            List<User> guestList =
+            // Display the list of users:
+            List<User> user =
                 em.createQuery("SELECT g FROM User g", User.class).getResultList();
-            request.setAttribute("users", guestList);
+            request.setAttribute("users", user);
             request.getRequestDispatcher("login/signup.jsp").forward(request, response);
  
         } finally {

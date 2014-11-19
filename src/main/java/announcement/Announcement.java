@@ -34,6 +34,6 @@ public class Announcement implements Serializable {
     // String Representation:
     @Override
     public String toString() {
-        return "welcome"+ publisher+"Announcement:"+content;
+        return "Publisher: "+ publisher+", Announcement: "+content + ", Publish Time: "+publish_time ;
     }
 }

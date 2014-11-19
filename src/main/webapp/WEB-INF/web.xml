@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app id="WebApp_ID" version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <display-name>ResearchApp</display-name>
-    <servlet-mapping>
-        <servlet-name>IndexServlet</servlet-name>
-        <url-pattern>/IndexServlet</url-pattern>
-    </servlet-mapping>
+    
     <welcome-file-list>
-        <welcome-file>login/login.jsp</welcome-file>
+        <!--<welcome-file>login/login.jsp</welcome-file>-->
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    
     <listener>
         <listener-class>user.UserListener</listener-class>
     </listener>
@@ -15,17 +14,21 @@
         <listener-class>research.ResearchListener</listener-class>
     </listener>
     <listener>
-        <listener-class>announcement.Announcement</listener-class>
+        <listener-class>announcement.AnnouncementListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>permission.UserPermissionListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>metadata.MetaListener</listener-class>
+    </listener>
+    
+    
     <servlet>
         <description/>
         <display-name>SignupServlet</display-name>
         <servlet-name>SignupServlet</servlet-name>
         <servlet-class>user.SignupServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>IndexServlet</servlet-name>
-        <servlet-class>index.IndexServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SignupServlet</servlet-name>
@@ -55,7 +58,7 @@
         <description/>
         <display-name>AnnouncementServlet</display-name>
         <servlet-name>AnnouncementServlet</servlet-name>
-        <servlet-class>announcement.AnnouncementServlet</servlet-class>
+        <servlet-class>announcement.AddAnnouncementServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AnnouncementServlet</servlet-name>
@@ -71,6 +74,24 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
-    
-    
+    <servlet>
+        <description/>
+        <display-name>AddUserGroupServlet</display-name>
+        <servlet-name>AddUserGroupServlet</servlet-name>
+        <servlet-class>permission.AddUserGroupServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddUserGroupServlet</servlet-name>
+        <url-pattern>/AddUserGroupServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description/>
+        <display-name>MetaServlet</display-name>
+        <servlet-name>MetaServlet</servlet-name>
+        <servlet-class>metadata.AddMetaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MetaServlet</servlet-name>
+        <url-pattern>/MetaServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

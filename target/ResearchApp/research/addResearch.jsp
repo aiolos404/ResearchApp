@@ -3,6 +3,7 @@
     Created on : Oct 21, 2014, 10:17:42 PM
     Author     : aiolos404
 --%>
+<!--This page could help user to add new research and new added research will be shown below.-->
 <%@page import="research.Research"%>
 <%@page import="java.util.*,research.SearchResearchServlet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,11 +11,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Add researches</title>
     </head>
     <body>
         <!--number,name,type,date,author,publisher-->
-     <a href="index.jsp" style="text-decoration: none">Back to index</a>
+<!--     <a href="index.jsp" style="text-decoration: none">Back to index</a>-->
      <form method="POST" action="AddResearchServlet">
             Number <input type="text" name="Number" /><br>
             Name: <input type="text" name="Name" /><br>

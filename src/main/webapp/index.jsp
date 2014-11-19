@@ -1,13 +1,12 @@
-<%@page import="java.util.*,index.IndexServlet"%>
+<!--This is the start page of the whole project-->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Start Page</title>
+        <title>Research Management Application</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h1>Hello World!</h1>
         <h2>Latest Announcement</h2>
         <table>
             <tr>
@@ -25,12 +24,12 @@
 
 
     </table>
-<!--    <h2>User Login</h2>
+    <h2>User Login</h2>
     <table>
         <tr>
             <td><a href="login/login.jsp">Login</a></td>
         </tr>
-    </table>-->
+    </table>
     <h2>Sign Up</h2>
     <table>
         <tr>
@@ -39,24 +38,9 @@
                  <a href="SignupServlet">Sign Up</a></td> 
         </tr>
     </table>
-    <h2>Research</h2>
-    <table>
-        
-        <tr>
-            <td><a href="AddResearchServlet">Add Research</a></td>
-        </tr>
-        <tr>
-            <td><a href="research/searchResearch.jsp">Search Research</a></td>
-        </tr>
-    </table>
-    <h2>Announcement</h2>
-    <table>
-        
-        <tr>
-            <td><a href="AnnouncementServlet">Add announcement</a></td>
-        </tr>
-        
-    </table>
+
+    
+    
 
 </body>
 </html>

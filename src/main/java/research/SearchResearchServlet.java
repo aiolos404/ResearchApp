@@ -23,17 +23,12 @@ public class SearchResearchServlet extends HttpServlet {
 
         // Obtain a PersistenceManager instance:
         EntityManagerFactory emf
-                = (EntityManagerFactory) getServletContext().getAttribute("emf");
+                = (EntityManagerFactory) getServletContext().getAttribute("researchemf");
         EntityManager em = emf.createEntityManager();
 
-//        CriteriaBuilder cb = em.getCriteriaBuilder();
-//        CriteriaQuery<Research> cq = cb.createQuery(Research.class);
-//        Root<Research> Research = cq.from(Research.class);
-//        cq.select(Research);
-//        TypedQuery<Research> q = em.createQuery(cq);
-//        List<Research> allPets = q.getResultList();
+
         try {
-            // Handle a new guest (if any):
+            // Handle new attributes (if any):
             String number = request.getParameter("Number");
             String name = request.getParameter("Name");
             String type = request.getParameter("Type");
@@ -42,16 +37,13 @@ public class SearchResearchServlet extends HttpServlet {
             String publisher = request.getParameter("Publisher");
 
             
-            
+            //I use criterial query in jpa, following query equals:
+            //select * from Research.class where number = "number" or name = "name" or type = "type" or date = "date" or author = "author" or publisher = "publisher"
             
             CriteriaBuilder cb = em.getCriteriaBuilder();
             CriteriaQuery cq = cb.createQuery(Research.class);
             Root<Research> research = cq.from(Research.class);
             cq.select(research);
-//            ParameterExpression<String> p = cb.parameter(String.class);
-//            ParameterExpression<String> a = cb.parameter(String.class);
-
-
             cq.where(
                     cb.or(
                             cb.equal(research.get("number"), number),
@@ -64,25 +56,14 @@ public class SearchResearchServlet extends HttpServlet {
             );
             TypedQuery<Research> q = em.createQuery(cq);
             List<Research> guestList = q.getResultList();
-            // Display the list of guests:
-//            List<Research> guestList = em.createQuery("select g from Search g where name='" + name + "' order by name", Research.class).getResultList();
-//            List<Research> guestList = em.createQuery("select g from Search g where name='" + name + "' or number='" + number + "' or type='" + type + "' or author='" + author + "' or date='" + date + "'or publisher='" + publisher+ "' order by name", Research.class).getResultList();
+            
+            // Display the list of researches:
             request.setAttribute("researches", guestList);
-//            request.getRequestDispatcher("research/searchResearch.jsp").forward(request, response);
+
             String nextJSP = "/research/viewSearch.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
             dispatcher.forward(request,response);
-//            request.getRequestDispatcher("research/addResearch.jsp").forward(request, response);
-//            SELECT c FROM Country WHERE c.population > :p AND c.area < :a
-//            CriteriaQuery temp = em.createQuery(Research.class);
-//            Root<Research> c = temp.from(Research.class);
-//            temp.select(c);
-//            ParameterExpression<Integer> p = temp.parameter(Integer.class);
-//            ParameterExpression<Integer> a = temp.parameter(Integer.class);
-//            temp.where(
-//                    em.gt(c.get("population"), p),
-//                    em.lt(c.get("area"), a)
-//            );
+
 
         } finally {
             // Close the PersistenceManager:

@@ -1,10 +1,14 @@
 <%-- 
-    Document   : search
+    Document   : searchResearch
     Created on : Oct 21, 2014, 9:23:25 PM
     Author     : aiolos404
 --%>
+<!--This is the page where user could search researcher with related fields-->
+<!--Do not need to provide all the information, 
+just provide part of that and the related results will be shown on the viewSearch.jsp-->
 <html>
     <head>
+        <title>Search researches</title>
     </head>
     <body>
         <br><br><br><br><br><br>

@@ -30,12 +30,14 @@ public class User implements Serializable {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.signingDate = new Date(System.currentTimeMillis());
+
     }
  
     // String Representation:
     @Override
     public String toString() {
-        return "welcome"+ firstname;
+        return "Firstname: "+ firstname + ", Lastname: " +lastname+ ", Email: " +email+ ", Username: " +username;
     }
+    
+
 }

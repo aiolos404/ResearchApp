@@ -1,3 +1,5 @@
+////This class create the research object persistence and set the entity factory
+
 package research;
  
 import research.*;
@@ -11,13 +13,13 @@ public class ResearchListener implements ServletContextListener {
         com.objectdb.Enhancer.enhance("research.*");
         EntityManagerFactory emf =
             Persistence.createEntityManagerFactory("$objectdb/db/research.odb");
-        e.getServletContext().setAttribute("emf", emf);
+        e.getServletContext().setAttribute("researchemf", emf);
     }
  
     // Release the EntityManagerFactory:
     public void contextDestroyed(ServletContextEvent e) {
         EntityManagerFactory emf =
-            (EntityManagerFactory)e.getServletContext().getAttribute("emf");
+            (EntityManagerFactory)e.getServletContext().getAttribute("researchemf");
         emf.close();
     }
 }

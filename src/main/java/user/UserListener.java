@@ -1,3 +1,5 @@
+//This class create the user object persistence and set the entity factory
+
 package user;
  
 import javax.persistence.*;

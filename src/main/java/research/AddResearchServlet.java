@@ -28,25 +28,25 @@ public class AddResearchServlet extends HttpServlet {
  
         // Obtain a PersistenceManager instance:
         EntityManagerFactory emf =
-           (EntityManagerFactory)getServletContext().getAttribute("emf");
+           (EntityManagerFactory)getServletContext().getAttribute("researchemf");
         EntityManager em = emf.createEntityManager();
  
         try {
-            // Handle a new guest (if any):
+            // Handle new research attributes  (if any):
             String number = request.getParameter("Number");
             String name = request.getParameter("Name");
             String type = request.getParameter("Type");
             String date = request.getParameter("Date");
             String author = request.getParameter("Author");
             String publisher = request.getParameter("Publisher");
-//            String title = request.getParameter("title");
+            //Check the attributes and create new research object
             if (number != null && name != null && type != null && date != null && author != null && publisher != null) {
                 em.getTransaction().begin();
                 em.persist(new Research(number,name,type,date,author,publisher));
                 em.getTransaction().commit();
             }
  
-            // Display the list of guests:
+            // Display the list of researches:
             List<Research> researchProject =
                 em.createQuery("SELECT g FROM Research g", Research.class).getResultList();
             request.setAttribute("researches", researchProject);

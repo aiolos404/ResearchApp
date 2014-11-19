@@ -1,3 +1,4 @@
+//This class create the announcement object persistence and set the entity factory
 package announcement;
  
 
@@ -11,13 +12,13 @@ public class AnnouncementListener implements ServletContextListener {
         com.objectdb.Enhancer.enhance("announcement.*");
         EntityManagerFactory emf =
             Persistence.createEntityManagerFactory("$objectdb/db/announcement.odb");
-        e.getServletContext().setAttribute("emf", emf);
+        e.getServletContext().setAttribute("announcementemf", emf);
     }
  
     // Release the EntityManagerFactory:
     public void contextDestroyed(ServletContextEvent e) {
         EntityManagerFactory emf =
-            (EntityManagerFactory)e.getServletContext().getAttribute("emf");
+            (EntityManagerFactory)e.getServletContext().getAttribute("announcementemf");
         emf.close();
     }
 }
